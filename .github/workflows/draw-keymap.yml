@@ -24,15 +24,8 @@ jobs:
         id: draw
         run: |
           mkdir -p img
-          # Cette commande parse ton fichier .keymap et génère le SVG
-          # Adapte "config/totem.keymap" si ton fichier s'appelle autrement !
-          keymap parse -c 10 -z config/totem.keymap > totem.yaml
-          
-          # Génération de l'image SVG
-          # On utilise ton fichier de config s'il existe
+          keymap parse -c 10 -z config/my_totem.keymap > totem.yaml     
           keymap draw totem.yaml -s keymap_drawer.config.yaml > img/totem.svg
-          
-          # Nettoyage du fichier temporaire
           rm totem.yaml
 
       - name: Commit updated image
