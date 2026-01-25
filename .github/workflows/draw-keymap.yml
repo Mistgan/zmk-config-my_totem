@@ -1,0 +1,19 @@
+name: Draw Keymap
+on:
+  workflow_dispatch:  
+  push:
+    paths:
+      - "config/*.keymap"      
+      - "keymap_drawer.config.yaml" 
+
+permissions:
+  contents: write  # Important pour qu'il puisse sauvegarder l'image
+
+jobs:
+  draw:
+    uses: caksoylar/keymap-drawer-action/.github/workflows/draw-zmk-main.yml@v1
+    with:
+      keymap_patterns: "config/*.keymap"        
+      config_path: "keymap_drawer.config.yaml"  
+      output_folder: "img"                      
+      amend_commit: true                        

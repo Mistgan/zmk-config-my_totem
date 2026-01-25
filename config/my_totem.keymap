@@ -1,17 +1,200 @@
+/*
+ * TOTEM ZMK CONFIGURATION - C# / UNITY / VS CODE EDITION
+ * * COMBOS (Appuyer simultanément) :
+ * -------------------------------------------------------
+ * Q + W         = ESCAPE
+ * J + K         = ENTREE
+ * H + J         = BACKSPACE
+ * Z + /         = CAPS WORD (Majuscule intelligente pour les constantes)
+ * M + ,         = <  (Pour XML/Generics)
+ * , + .         = >  (Pour XML/Generics)
+ * . + /         = Commenter ligne (Ctrl + /)
+ * */
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+
+// --- DÉFINITIONS DES COUCHES ---
+#define BASE 0
+#define SYM  1
+#define NAV  2
+#define SYS  3
+#define GAME 4
+
+// --- CONFIGURATION DES BEHAVIORS ---
+
+// Mod-Tap : Appui court = Touche, Appui long = Modifieur
+&mt {
+    quick-tap-ms = <100>;
+    global-quick-tap;
+    flavor = "tap-preferred";
+    tapping-term-ms = <170>;
+};
+
+// Caps Word : S'arrête tout seul après un espace ou un symbole non autorisé
+&caps_word {
+    continue-list = <UNDERSCORE MINUS BACKSPACE DELETE>;
+};
 
 / {
+    behaviors {
+        // HOME ROW MODS :
+        // Maintenir la touche active le modifieur (Shift, Ctrl, Alt, Gui)
+        // F = Shift, D = Ctrl, S = Alt, A = Win
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        // --- UTILITAIRES ---
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>;      // Q + W
+            bindings = <&kp ESC>;
+        };
+        combo_enter {
+            timeout-ms = <50>;
+            key-positions = <16 17>;    // J + K
+            bindings = <&kp RET>;
+        };
+        combo_bspc {
+             timeout-ms = <50>;
+             key-positions = <15 16>;   // H + J
+             bindings = <&kp BSPC>;
+        };
+        combo_capsword {
+            timeout-ms = <50>;
+            key-positions = <20 29>;    // Z + / (Extrémités bas)
+            bindings = <&caps_word>;
+        };
+
+        // --- C# GENERICS & XML (< >) ---
+        combo_lt {
+            timeout-ms = <40>;
+            key-positions = <27 28>;    // M + ,
+            bindings = <&kp LT>;
+        };
+        combo_gt {
+            timeout-ms = <40>;
+            key-positions = <28 29>;    // , + .
+            bindings = <&kp GT>;
+        };
+
+        // --- VS CODE ---
+        combo_comment {
+             timeout-ms = <50>;
+             key-positions = <29 30>;   // . + /
+             bindings = <&kp LC(FSLH)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+/* ------------------------------------------------------------------------------------------------
+ * LAYER 0: BASE (QWERTY US)
+ * * Q     W     E     R     T     |     Y     U     I     O     P
+ * A     S     D     F     G     |     H     J     K     L     ;
+ * Z     X     C     V     B     |     N     M     ,     .     /     '
+ * CPY   PST   SPC(Nav)     |   RET(Sym)   BSP(Nav)   DEL
+ * * Notes: 
+ * - Home Row Mods sur A,S,D,F et J,K,L,;
+ * - Tab maintenu à gauche = Layer SYS
+ * ------------------------------------------------------------------------------------------------ */
+        base_layer {
             display-name = "Base";
             bindings = <
-                &kp A &kp B &kp C &kp D &kp E &kp F &kp G &kp H &kp I &kp J
-                &kp K &kp L &kp M &kp N &kp O &kp P &kp Q &kp R &kp S &kp T
-                &kp U &kp V &kp W &kp X &kp Y &kp Z &kp A &kp B &kp C &kp D &kp E &kp F
-                &kp G &kp H &kp I &kp J &kp K &kp L
+           &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
+           &hm LGUI A  &hm LALT S  &hm LCTRL D &hm LSHFT F &kp G           &kp H       &hm RSHFT J &hm RCTRL K &hm RALT L  &hm RGUI SEMI
+&lt SYS TAB &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH     &kp SQT
+                       &kp LC(C)   &lt NAV SPACE &lt SYM TAB               &lt SYM RET &lt NAV BSPC &kp DEL
+            >;
+        };
+
+/* ------------------------------------------------------------------------------------------------
+ * LAYER 1: SYMBOLES C# & CODE
+ * * 1     2     3     4     5     |     -     <     >     "     +
+ * 6     7     8     9     0     |     _     (     )     '     =
+ * !     @     #     $     |     %     ^     {     }     [     ]
+ * ...   ...   ...    |    ...   ...   ...
+ * * Notes: 
+ * - Optimisé pour C# : ( ) { } [ ] accessibles sans bouger le poignet droit.
+ * ------------------------------------------------------------------------------------------------ */
+        sym_layer {
+            display-name = "Code";
+            bindings = <
+           &kp N1      &kp N2      &kp N3      &kp N4      &kp N5          &kp MINUS   &kp LT      &kp GT      &kp DQT     &kp PLUS
+           &kp N6      &kp N7      &kp N8      &kp N9      &kp N0          &kp UNDER   &kp LPAR    &kp RPAR    &kp SQT     &kp EQUAL
+&trans     &kp EXCL    &kp AT      &kp HASH    &kp DLLR    &kp PRCNT       &kp CARET   &kp LBRC    &kp RBRC    &kp LBKT    &kp RBKT     &trans
+                       &trans      &trans      &trans                      &trans      &trans      &trans
+            >;
+        };
+
+/* ------------------------------------------------------------------------------------------------
+ * LAYER 2: NAVIGATION & DEBUG
+ * * F1    F2    F3    F4    F5    |    Home  PgDn  PgUp  End   PrtSc
+ * F6    F7    F8    F9    F10   |    Left  Down  Up    Right Ins
+ * F11   F12               |    Game              ...
+ * ...   ...   ...    |    ...   ...   ...
+ * * Notes: 
+ * - Navigation style VIM (HJKL) sur la main droite.
+ * - Accès au Layer GAME via le pouce droit.
+ * ------------------------------------------------------------------------------------------------ */
+        nav_layer {
+            display-name = "Nav";
+            bindings = <
+           &kp F1      &kp F2      &kp F3      &kp F4      &kp F5          &kp HOME    &kp PG_DN   &kp PG_UP   &kp END     &kp PSCRN
+           &kp F6      &kp F7      &kp F8      &kp F9      &kp F10         &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp INS
+&trans     &kp F11     &kp F12     &trans      &trans      &to GAME        &trans      &trans      &trans      &trans      &trans       &trans
+                       &trans      &trans      &trans                      &trans      &trans      &trans
+            >;
+        };
+
+/* ------------------------------------------------------------------------------------------------
+ * LAYER 3: SYSTEM & BLUETOOTH
+ * * RST          OutTog BTClr      |                F7    F8    F9    F12
+ * Boot  BtNxt         BtSel1     |    Slck        F4    F5    F6    F11
+ * BtPrv         BtSel2     |    Pause       F1    F2    F3    F10
+ * ...   ...   ...    |    ...   ...   ...
+ * ------------------------------------------------------------------------------------------------ */
+        sys_layer {
+            display-name = "Sys";
+            bindings = <
+           &sys_reset  &trans      &trans      &trans      &bt BT_CLR      &trans      &trans      &trans      &trans      &bootloader
+           &bootloader &bt BT_NXT  &trans      &trans      &bt BT_SEL 0    &trans      &trans      &trans      &trans      &trans
+&trans     &trans      &bt BT_PRV  &trans      &trans      &bt BT_SEL 1    &trans      &trans      &trans      &trans      &trans       &trans
+                       &trans      &trans      &trans                      &trans      &trans      &trans
+            >;
+        };
+
+/* ------------------------------------------------------------------------------------------------
+ * LAYER 4: GAME (UNITY / FPS)
+ * * Q     W     E     R     T     |     Y     U     I     O     P
+ * A     S     D     F     G     |     H     J     K     L     ;
+ * Z     X     C     V     B     |     N     M     ,     .     /
+ * Ctrl  Space Shift        |    ...   ...   ...
+ * * Notes: 
+ * - Pas de Home Row Mods (pour ne pas interférer avec ZQSD/WASD).
+ * - "To Base" sur le petit doigt gauche pour sortir du mode jeu.
+ * ------------------------------------------------------------------------------------------------ */
+        game_layer {
+            display-name = "Game";
+            bindings = <
+           &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
+           &kp A       &kp S       &kp D       &kp F       &kp G           &kp H       &kp J       &kp K       &kp L       &kp SEMI
+&to BASE   &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH     &trans
+                       &kp LCTRL   &kp SPACE   &kp LSHFT                   &trans      &trans      &trans
             >;
         };
     };

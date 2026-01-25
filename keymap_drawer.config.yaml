@@ -1,0 +1,25 @@
+draw_config:
+  key_w: 60
+  key_h: 56
+  split_gap: 30.0
+  combo_w: 28
+  combo_h: 26
+  
+  qmk_keyboard: totem 
+  
+parse_config:
+  raw_binding_map:
+    "&sys_reset": "Reset"
+    "&bootloader": "Boot"
+    "&caps_word": "CAPS"
+    "&kp LC(FSLH)": "Comment"
+    "&kp LC(C)": "Copy"
+    "&kp LC(V)": "Paste"
+    "&hm LGUI A": "A"  # Pour éviter d'afficher "Gui+A" sur le dessin
+    "&hm LALT S": "S"
+    "&hm LCTRL D": "D"
+    "&hm LSHFT F": "F"
+    "&hm RSHFT J": "J"
+    "&hm RCTRL K": "K"
+    "&hm RALT L": "L"
+    "&hm RGUI SEMI": ";"

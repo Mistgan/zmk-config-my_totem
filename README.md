@@ -8,6 +8,11 @@ Edit your keymap <https://zmk.dev/docs/keymaps>.
 User keymap is located at [`config/my_totem.keymap`](config/my_totem.keymap).
 
 -----
+# Mon Totem Marsala Layout
+
+![Keymap Layout](img/totem.svg)
+
+-----
 
 <details>
 <summary>
