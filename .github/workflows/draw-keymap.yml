@@ -26,12 +26,15 @@ jobs:
         run: |
           mkdir -p img
           
-          keymap parse -c 10 -z config/my_totem.keymap > my_totem.yaml
+          keymap parse -c 10 -z config/my_totem.keymap > parsed_keymap.yaml
+          
+          sed -i 's/qmk_keyboard: "my_totem"/qmk_keyboard: "totem"/g' parsed_keymap.yaml
 
-          keymap draw my_totem.yaml -s keymap_drawer.config.yaml -j '{"layout": {"qmk_keyboard": "totem"}}' > img/totem.svg
+          sed -i 's/qmk_keyboard: my_totem/qmk_keyboard: totem/g' parsed_keymap.yaml
 
-          # ETAPE 3 : Ménage
-          rm my_totem.yaml
+          keymap draw parsed_keymap.yaml -s keymap_drawer.config.yaml > img/totem.svg
+
+          rm parsed_keymap.yaml
 
       - name: Commit changed files
         uses: stefanzweifel/git-auto-commit-action@v5
