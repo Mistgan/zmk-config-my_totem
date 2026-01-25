@@ -26,15 +26,17 @@ jobs:
         run: |
           mkdir -p img
           
-          keymap parse -c 10 -z config/my_totem.keymap > parsed_keymap.yaml
+          keymap parse -c 10 -z config/my_totem.keymap > parsed.yaml
           
-          sed -i 's/qmk_keyboard: "my_totem"/qmk_keyboard: "totem"/g' parsed_keymap.yaml
+          sed -i 's/my_totem/totem/g' parsed.yaml
+          
+          sed -i 's/zmk_keyboard/qmk_keyboard/g' parsed.yaml
 
-          sed -i 's/qmk_keyboard: my_totem/qmk_keyboard: totem/g' parsed_keymap.yaml
+          cat parsed.yaml
 
-          keymap draw parsed_keymap.yaml -s keymap_drawer.config.yaml > img/totem.svg
+          keymap draw parsed.yaml -s keymap_drawer.config.yaml > img/totem.svg
 
-          rm parsed_keymap.yaml
+          rm parsed.yaml
 
       - name: Commit changed files
         uses: stefanzweifel/git-auto-commit-action@v5
