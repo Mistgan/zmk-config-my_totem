@@ -1,5 +1,4 @@
 name: Draw Keymap
-
 on:
   workflow_dispatch:
   push:
@@ -12,24 +11,9 @@ permissions:
 
 jobs:
   draw:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install keymap-drawer
-        run: python3 -m pip install keymap-drawer
-
-      - name: Draw Keymap
-        id: draw
-        run: |
-          mkdir -p img
-          keymap parse -c 10 -z config/my_totem.keymap > totem.yaml     
-          keymap draw totem.yaml -s keymap_drawer.config.yaml > img/totem.svg
-          rm totem.yaml
-
-      - name: Commit updated image
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update keymap layout image"
-          file_pattern: img/*.svg
+    uses: caksoylar/keymap-drawer-action/.github/workflows/draw-zmk-main.yml@v1
+    with:
+      keymap_patterns: "config/*.keymap"       
+      config_path: "keymap_drawer.config.yaml" 
+      output_folder: "img"
+      amend_commit: true

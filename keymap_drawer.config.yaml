@@ -4,18 +4,19 @@ draw_config:
   split_gap: 30.0
   combo_w: 28
   combo_h: 26
+  dark_mode: auto
   
   qmk_keyboard: totem 
   
 parse_config:
   raw_binding_map:
-    "&sys_reset": "Reset"
-    "&bootloader": "Boot"
+    "&sys_reset": "RST"
+    "&bootloader": "BOOT"
     "&caps_word": "CAPS"
-    "&kp LC(FSLH)": "Comment"
+    "&kp LC(FSLH)": "Com."
     "&kp LC(C)": "Copy"
     "&kp LC(V)": "Paste"
-    "&hm LGUI A": "A"  # Pour éviter d'afficher "Gui+A" sur le dessin
+    "&hm LGUI A": "A"
     "&hm LALT S": "S"
     "&hm LCTRL D": "D"
     "&hm LSHFT F": "F"
@@ -23,3 +24,8 @@ parse_config:
     "&hm RCTRL K": "K"
     "&hm RALT L": "L"
     "&hm RGUI SEMI": ";"
+    "&lt SYS TAB": "SYS"
+    "&lt NAV SPACE": "NAV"
+    "&lt SYM TAB": "SYM"
+    "&lt SYM RET": "SYM"
+    "&lt NAV BSPC": "NAV"
