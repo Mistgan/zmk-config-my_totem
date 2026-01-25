@@ -34,7 +34,7 @@ jobs:
 
           cat parsed.yaml
 
-          keymap draw parsed.yaml -s keymap_drawer.config.yaml > img/totem.svg
+          keymap draw parsed.yaml -c keymap_drawer.config.yaml > img/totem.svg
 
           rm parsed.yaml
 
