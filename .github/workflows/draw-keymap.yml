@@ -1,21 +1,21 @@
 name: Generate keymap SVG
 
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
   push:
-    paths:           
+    paths:
       - "config/*.keymap"
       - "keymap_drawer.config.yaml"
 
 permissions:
-  contents: write     
+  contents: write
 
 jobs:
   keymap-drawer-export:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4  
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -25,7 +25,11 @@ jobs:
       - name: Generate SVG
         run: |
           mkdir -p img
-          keymap parse -c 10 -z config/my_totem.keymap | keymap draw -s keymap_drawer.config.yaml > img/totem.svg
+          keymap parse -c 10 -z config/my_totem.keymap > totem.yaml
+
+          keymap draw totem.yaml -s keymap_drawer.config.yaml > img/totem.svg
+
+          rm totem.yaml
 
       - name: Commit changed files
         uses: stefanzweifel/git-auto-commit-action@v5
