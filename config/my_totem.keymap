@@ -126,7 +126,7 @@
 &kp Q       &kp W       &kp E        &kp R        &kp T                   &kp Y      &kp U        &kp I        &kp O       &kp P
 &hm LGUI A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G                   &kp H      &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMI
 &lt 3 TAB   &kp Z       &kp X        &kp C        &kp V      &kp B        &kp N      &kp M        &kp COMMA    &kp DOT     &kp FSLH       &lt 5 SQT
-                                     &kp LC(C)    &lt 2 TAB  &lt 1 SPACE  &lt 1 RET  &lt 2 BSPC   &kp DEL
+                                     &kp LC(C)    &lt 2 TAB  &lt 1 SPACE  &lt 1 RET  &lt 2 BSPC   &lt 3 DEL
             >;
         };
 
