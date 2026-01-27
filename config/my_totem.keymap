@@ -126,7 +126,7 @@
 &kp Q       &kp W       &kp E        &kp R        &kp T                   &kp Y      &kp U        &kp I        &kp O       &kp P
 &hm LGUI A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G                   &kp H      &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMI
 &lt 3 TAB   &kp Z       &kp X        &kp C        &kp V      &kp B        &kp N      &kp M        &kp COMMA    &kp DOT     &kp FSLH       &lt 5 SQT
-                                     &kp LC(C)    &lt 2 TAB  &lt 1 SPACE  &lt 1 RET  &lt 2 BSPC   &lt 3 DEL
+                                     &lt 3 LC(C)  &lt 2 TAB  &lt 1 SPACE  &lt 1 RET  &lt 2 BSPC   &lt 3 DEL
             >;
         };
 
@@ -182,10 +182,10 @@
         sys_layer {
             display-name = "Sys";
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3   &kp F4            &trans  &trans          &trans     &trans    &trans
-&trans  &kp F5  &kp F6  &kp F7   &kp F8            &trans  &kp LEFT_SHIFT  &kp LCTRL  &kp LALT  &kp LGUI
-&trans  &trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans          &trans     &trans    &trans    &trans
-                        &trans   &trans   &trans   &trans  &trans          &trans
+&trans  &kp F1  &kp F2  &kp F3   &kp F4            &kp F2        &kp LS(F12)         &kp LC(F12)          &kp LC(DOT)  &kp LC(LS(R))
+&trans  &kp F5  &kp F6  &kp F7   &kp F8            &kp F12       &kp LEFT_SHIFT      &kp LCTRL            &kp LALT     &kp LGUI
+&trans  &trans  &kp F9  &kp F10  &kp F11  &kp F12  &kp LC(FSLH)  &kp LA(LEFT_ARROW)  &kp LA(RIGHT_ARROW)  &trans       &trans         &trans
+                        &trans   &trans   &trans   &trans        &trans              &trans
             >;
         };
 
