@@ -1,0 +1,20 @@
+draw_config:
+  key_w: 60
+  key_h: 56
+  split_gap: 30.0
+
+parse_config:
+  preprocess:
+    - ['&hm LCTRL', 'Ctrl']
+    - ['&hm RCTRL', 'Ctrl']
+    - ['&hm LALT', 'Alt']
+    - ['&hm RALT', 'Alt']
+    - ['&hm LGUI', 'Gui']
+    - ['&hm RGUI', 'Gui']
+    - ['&hm LSHFT', 'Shft']
+    - ['&hm RSHFT', 'Shft']
+    - ['&lt', 'LT']
+
+physical_layout:
+  qmk_keyboard: totem
+  qmk_layout: LAYOUT
