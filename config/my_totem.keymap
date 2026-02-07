@@ -57,6 +57,27 @@
         };
     };
 
+    macros {
+        // C# Lambda (=>)
+        m_lambda: m_lambda {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp GT>;
+        };
+        // Unity Serialized Field ([SerializeField] private )
+        m_ser: m_ser {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LBKT &kp S &kp E &kp R &kp I &kp A &kp L &kp I &kp Z &kp E &kp F &kp I &kp E &kp L &kp D &kp RBKT &kp SPACE &kp P &kp R &kp I &kp V &kp A &kp T &kp E &kp SPACE>;
+        };
+        // Unity Debug Log (Debug.Log("");) + Cursor placement
+        m_log: m_log {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp D &kp E &kp B &kp U &kp G &kp DOT &kp L &kp O &kp G &kp LPAR &kp DQT &kp DQT &kp RPAR &kp SEMI &kp LEFT &kp LEFT &kp LEFT>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -166,8 +187,8 @@
             bindings = <
 &kp EXCLAMATION  &kp AT     &kp POUND  &kp DLLR   &kp PERCENT            &kp LT     &kp GT     &kp LBKT  &kp RBKT   &kp DQT
 &kp CARET        &kp AMPS   &kp STAR   &kp PIPE   &kp UNDER              &kp LPAR   &kp RPAR   &kp LBRC  &kp RBRC   &kp SQT
-&trans           &kp ASTRK  &kp PLUS   &kp MINUS  &kp EQUAL    &kp BSLH  &kp QMARK  &kp COLON  &kp SEMI  &kp GRAVE  &kp TILDE  &trans
-                                       &trans     &trans       &trans    &trans     &trans     &trans
+&m_lambda        &kp ASTRK  &kp PLUS   &kp MINUS  &kp EQUAL    &kp BSLH  &kp QMARK  &kp COLON  &kp SEMI  &kp GRAVE  &kp TILDE  &m_ser
+                                       &m_log     &trans       &trans    &trans     &trans     &trans
             >;
         };
 
@@ -215,7 +236,7 @@
             bindings = <
 &trans  &kp F1  &kp F2  &kp F3   &kp F4            &kp F2        &kp LS(F12)         &kp LG(F12)          &kp LG(DOT)  &kp LG(LS(R))
 &trans  &kp F5  &kp F6  &kp F7   &kp F8            &kp F12       &kp LEFT_SHIFT      &kp LGUI             &kp LALT     &kp LCTRL
-&trans  &trans  &kp F9  &kp F10  &kp F11  &kp F12  &kp LC(FSLH)  &kp LA(LEFT_ARROW)  &kp LA(RIGHT_ARROW)  &trans       &trans         &trans
+&trans  &trans  &kp F9  &kp F10  &kp F11  &kp F12  &kp LG(FSLH)  &kp LG(LBKT)        &kp LG(RBKT)         &trans       &trans         &trans
                         &trans   &trans   &trans   &trans        &trans              &trans
             >;
         };
