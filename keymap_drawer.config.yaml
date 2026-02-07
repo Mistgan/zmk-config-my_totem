@@ -5,16 +5,15 @@ draw_config:
 
 parse_config:
   preprocess:
-    - ['&hm LCTRL', 'Ctrl']
-    - ['&hm RCTRL', 'Ctrl']
-    - ['&hm LALT', 'Alt']
-    - ['&hm RALT', 'Alt']
-    - ['&hm LGUI', 'Gui']
-    - ['&hm RGUI', 'Gui']
-    - ['&hm LSHFT', 'Shft']
-    - ['&hm RSHFT', 'Shft']
-    - ['&lt', 'LT']
-
-physical_layout:
-  qmk_keyboard: totem
-  qmk_layout: LAYOUT
+    true
+  zmk_hold_tap_behaviors:
+    - hm
+  zmk_keycode_map:
+    LCTRL: Ctrl
+    RCTRL: Ctrl
+    LALT: Alt
+    RALT: Alt
+    LGUI: Gui
+    RGUI: Gui
+    LSHFT: Shft
+    RSHFT: Shft
