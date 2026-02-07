@@ -1,0 +1,333 @@
+layout: {zmk_keyboard: my_totem}
+layers:
+  Base:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - {t: A, h: Gui}
+  - {t: S, h: Alt}
+  - {t: D, h: Ctrl}
+  - {t: F, h: Shft}
+  - G
+  - H
+  - {t: J, h: Shft}
+  - {t: K, h: Ctrl}
+  - {t: L, h: Alt}
+  - {t: SEMI, h: Gui}
+  - {t: TAB, h: SysWin}
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - COMMA
+  - DOT
+  - FSLH
+  - {t: SQT, h: ble}
+  - {t: Ctl+C, h: SysWin}
+  - {t: TAB, h: Nav}
+  - {t: SPACE, h: Code}
+  - {t: RET, h: Code}
+  - {t: BSPC, h: Nav}
+  - {t: DEL, h: SysWin}
+  Mac:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - {t: A, h: Ctrl}
+  - {t: S, h: Alt}
+  - {t: D, h: Gui}
+  - {t: F, h: Shft}
+  - G
+  - H
+  - {t: J, h: Shft}
+  - {t: K, h: Gui}
+  - {t: L, h: Alt}
+  - {t: SEMI, h: Ctrl}
+  - {t: TAB, h: SysMac}
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - COMMA
+  - DOT
+  - FSLH
+  - {t: SQT, h: ble}
+  - {t: Gui+C, h: SysMac}
+  - {t: TAB, h: Nav}
+  - {t: SPACE, h: Code}
+  - {t: RET, h: Code}
+  - {t: BSPC, h: Nav}
+  - {t: DEL, h: SysMac}
+  Code:
+  - EXCLAMATION
+  - AT
+  - POUND
+  - DLLR
+  - PERCENT
+  - LT
+  - GT
+  - LBKT
+  - RBKT
+  - DQT
+  - CARET
+  - AMPS
+  - STAR
+  - PIPE
+  - UNDER
+  - LPAR
+  - RPAR
+  - LBRC
+  - RBRC
+  - SQT
+  - '&m_lambda'
+  - ASTRK
+  - PLUS
+  - MINUS
+  - EQUAL
+  - BSLH
+  - QMARK
+  - COLON
+  - SEMI
+  - GRAVE
+  - TILDE
+  - '&m_ser'
+  - '&m_log'
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  Nav:
+  - {t: ▽, type: trans}
+  - '7'
+  - '8'
+  - '9'
+  - KP MULTIPLY
+  - HOME
+  - PG DN
+  - UP
+  - PG UP
+  - PSCRN
+  - {t: ▽, type: trans}
+  - '4'
+  - '5'
+  - '6'
+  - KP PLUS
+  - END
+  - LEFT
+  - DOWN
+  - RIGHT
+  - INS
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '1'
+  - '2'
+  - '3'
+  - KP MINUS
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '0'
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  SysWin:
+  - {t: ▽, type: trans}
+  - F1
+  - F2
+  - F3
+  - F4
+  - F2
+  - Sft+F12
+  - Ctl+F12
+  - Ctl+DOT
+  - Ctl+Sft+R
+  - {t: ▽, type: trans}
+  - F5
+  - F6
+  - F7
+  - F8
+  - F12
+  - LEFT SHIFT
+  - Ctrl
+  - Alt
+  - Gui
+  - {type: held}
+  - {t: ▽, type: trans}
+  - F9
+  - F10
+  - F11
+  - F12
+  - Ctl+FSLH
+  - Alt+LEFT ARROW
+  - Alt+RIGHT ARROW
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  SysMac:
+  - {t: ▽, type: trans}
+  - F1
+  - F2
+  - F3
+  - F4
+  - F2
+  - Sft+F12
+  - Gui+F12
+  - Gui+DOT
+  - Gui+Sft+R
+  - {t: ▽, type: trans}
+  - F5
+  - F6
+  - F7
+  - F8
+  - F12
+  - LEFT SHIFT
+  - Gui
+  - Alt
+  - Ctrl
+  - {type: held}
+  - {t: ▽, type: trans}
+  - F9
+  - F10
+  - F11
+  - F12
+  - Gui+FSLH
+  - Gui+LBKT
+  - Gui+RBKT
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  Game:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - A
+  - S
+  - D
+  - F
+  - G
+  - H
+  - J
+  - K
+  - L
+  - SEMI
+  - {t: Base, h: toggle}
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - N
+  - M
+  - COMMA
+  - DOT
+  - FSLH
+  - {t: ▽, type: trans}
+  - Ctrl
+  - SPACE
+  - Shft
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  ble:
+  - {t: Base, h: toggle}
+  - {t: Mac, h: toggle}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: BT, h: '0'}
+  - BT NXT
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: BT, h: '1'}
+  - BT PRV
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: BT, h: '2'}
+  - BT CLR
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - '&bootloader'
+  - '&sys_reset'
+  - '&studio_unlock'
+  - '&studio_unlock'
+  - '&sys_reset'
+  - '&bootloader'
+combos:
+- p: [0, 1]
+  k: ESC
+- p: [16, 17]
+  k: RET
+- p: [15, 16]
+  k: BSPC
+- p: [20, 29]
+  k: '&caps_word'
+- p: [27, 28]
+  k: LT
+- p: [28, 29]
+  k: GT
+- p: [29, 30]
+  k: Ctl+FSLH
+  l: [Base, SysWin]
+- p: [29, 30]
+  k: Gui+FSLH
+  l: [Mac]
