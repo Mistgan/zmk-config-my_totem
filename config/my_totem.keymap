@@ -18,10 +18,13 @@
 // --- DÉFINITIONS DES COUCHES ---
 
 #define BASE 0
-#define SYM  1
-#define NAV  2
-#define SYS  3
-#define GAME 4
+#define MAC  1
+#define SYM  2
+#define NAV  3
+#define SYS_WIN 4
+#define SYS_MAC 5
+#define GAME 6
+#define BLE  7
 
 // --- CONFIGURATION DES BEHAVIORS ---
 // Mod-Tap : Appui court = Touche, Appui long = Modifieur
@@ -103,6 +106,14 @@
             timeout-ms = <50>;
             key-positions = <29 30>;   // . + /
             bindings = <&kp LC(FSLH)>;
+            layers = <BASE SYS_WIN>;
+        };
+
+        combo_comment_mac {
+            timeout-ms = <50>;
+            key-positions = <29 30>;   // . + /
+            bindings = <&kp LG(FSLH)>;
+            layers = <MAC>;
         };
     };
 
@@ -125,8 +136,18 @@
             bindings = <
 &kp Q       &kp W       &kp E        &kp R        &kp T                   &kp Y      &kp U        &kp I        &kp O       &kp P
 &hm LGUI A  &hm LALT S  &hm LCTRL D  &hm LSHFT F  &kp G                   &kp H      &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMI
-&lt 3 TAB   &kp Z       &kp X        &kp C        &kp V      &kp B        &kp N      &kp M        &kp COMMA    &kp DOT     &kp FSLH       &lt 5 SQT
-                                     &lt 3 LC(C)  &lt 2 TAB  &lt 1 SPACE  &lt 1 RET  &lt 2 BSPC   &lt 3 DEL
+&lt SYS_WIN TAB &kp Z   &kp X        &kp C        &kp V      &kp B        &kp N      &kp M        &kp COMMA    &kp DOT     &kp FSLH       &lt BLE SQT
+                                     &lt SYS_WIN LC(C) &lt NAV TAB &lt SYM SPACE  &lt SYM RET  &lt NAV BSPC &lt SYS_WIN DEL
+            >;
+        };
+
+        mac_layer {
+            display-name = "Mac";
+            bindings = <
+&kp Q       &kp W       &kp E        &kp R        &kp T                   &kp Y      &kp U        &kp I        &kp O       &kp P
+&hm LCTRL A &hm LALT S  &hm LGUI D   &hm LSHFT F  &kp G                   &kp H      &hm RSHFT J  &hm RGUI K   &hm RALT L  &hm RCTRL SEMI
+&lt SYS_MAC TAB &kp Z   &kp X        &kp C        &kp V      &kp B        &kp N      &kp M        &kp COMMA    &kp DOT     &kp FSLH       &lt BLE SQT
+                                     &lt SYS_MAC LG(C) &lt NAV TAB &lt SYM SPACE  &lt SYM RET  &lt NAV BSPC &lt SYS_MAC DEL
             >;
         };
 
@@ -162,7 +183,7 @@
  * ------------------------------------------------------------------------------------------------ */
 
         num_layer {
-            display-name = "Num";
+            display-name = "Nav";
             bindings = <
 &trans  &kp N7  &kp N8  &kp N9  &kp KP_MULTIPLY                &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &kp PSCRN
 &trans  &kp N4  &kp N5  &kp N6  &kp KP_PLUS                    &trans    &kp LEFT   &kp UP     &kp RIGHT  &kp INS
@@ -179,11 +200,21 @@
  * ...   ...   ...    |    ...   ...   ...
  * ------------------------------------------------------------------------------------------------ */
 
-        sys_layer {
-            display-name = "Sys";
+        sys_win_layer {
+            display-name = "SysWin";
             bindings = <
 &trans  &kp F1  &kp F2  &kp F3   &kp F4            &kp F2        &kp LS(F12)         &kp LC(F12)          &kp LC(DOT)  &kp LC(LS(R))
 &trans  &kp F5  &kp F6  &kp F7   &kp F8            &kp F12       &kp LEFT_SHIFT      &kp LCTRL            &kp LALT     &kp LGUI
+&trans  &trans  &kp F9  &kp F10  &kp F11  &kp F12  &kp LC(FSLH)  &kp LA(LEFT_ARROW)  &kp LA(RIGHT_ARROW)  &trans       &trans         &trans
+                        &trans   &trans   &trans   &trans        &trans              &trans
+            >;
+        };
+
+        sys_mac_layer {
+            display-name = "SysMac";
+            bindings = <
+&trans  &kp F1  &kp F2  &kp F3   &kp F4            &kp F2        &kp LS(F12)         &kp LG(F12)          &kp LG(DOT)  &kp LG(LS(R))
+&trans  &kp F5  &kp F6  &kp F7   &kp F8            &kp F12       &kp LEFT_SHIFT      &kp LGUI             &kp LALT     &kp LCTRL
 &trans  &trans  &kp F9  &kp F10  &kp F11  &kp F12  &kp LC(FSLH)  &kp LA(LEFT_ARROW)  &kp LA(RIGHT_ARROW)  &trans       &trans         &trans
                         &trans   &trans   &trans   &trans        &trans              &trans
             >;
@@ -205,14 +236,14 @@
             bindings = <
 &kp Q  &kp W  &kp E  &kp R      &kp T                 &kp Y   &kp U   &kp I      &kp O    &kp P
 &kp A  &kp S  &kp D  &kp F      &kp G                 &kp H   &kp J   &kp K      &kp L    &kp SEMI
-&to 0  &kp Z  &kp X  &kp C      &kp V      &kp B      &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &trans
+&to BASE &kp Z &kp X  &kp C      &kp V      &kp B      &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &trans
                      &kp LCTRL  &kp SPACE  &kp LSHFT  &trans  &trans  &trans
             >;
         };
 
         ble_layer {
             bindings = <
-&trans  &trans  &trans  &trans       &bt BT_SEL 0                  &bt BT_NXT      &trans      &trans       &trans  &trans
+&to BASE &to MAC &trans &trans       &bt BT_SEL 0                  &bt BT_NXT      &trans      &trans       &trans  &trans
 &trans  &trans  &trans  &trans       &bt BT_SEL 1                  &bt BT_PRV      &trans      &trans       &trans  &trans
 &trans  &trans  &trans  &trans       &trans        &bt BT_SEL 2    &bt BT_CLR      &trans      &trans       &trans  &trans  &trans
                         &bootloader  &sys_reset    &studio_unlock  &studio_unlock  &sys_reset  &bootloader
