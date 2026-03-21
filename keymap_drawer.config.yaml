@@ -73,13 +73,13 @@ parse_config:
     FR_PLUS: '+'
     FR_COMMA: ','
     FR_MINUS: '-'
-    FR_PERIOD: .
-    FR_SLASH: /
+    FR_PERIOD: '.'
+    FR_SLASH: '/'
     FR_COLON: ':'
-    FR_SEMICOLON: ;
-    FR_LESS_THAN: <
-    FR_EQUAL: =
-    FR_GREATER_THAN: >
+    FR_SEMICOLON: ';'
+    FR_LESS_THAN: '<'
+    FR_EQUAL: '='
+    FR_GREATER_THAN: '>'
     FR_QUESTION: '?'
     FR_AT_SIGN: '@'
     FR_LEFT_BRACKET: '['
