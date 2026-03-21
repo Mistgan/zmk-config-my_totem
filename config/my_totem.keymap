@@ -16,8 +16,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-// Include the French locale definitions
+#ifndef KEYMAP_DRAWER
+// Include the French locale definitions only for firmware build
 #include "keys_fr.h"
+#endif
 
 // --- LAYER DEFINITIONS ---
 
