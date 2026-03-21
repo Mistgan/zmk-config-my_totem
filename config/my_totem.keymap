@@ -65,23 +65,31 @@
     };
 
     macros {
-        // C# Lambda (=>)
-        m_lambda: m_lambda {
+        // C# Lambda (=>) - Windows
+        m_lambda_win: m_lambda_win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp FR_EQUAL &kp FR_GT>;
         };
-        // Unity Serialized Field ([SerializeField] private )
+        // C# Lambda (=>) - Mac workaround for inverted characters
+        m_lambda_mac: m_lambda_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FR_EQUAL &kp LS(FR_SUPER2)>; 
+        };
+        
+        // Unity Serialized Field ([SerializeField] private ) - Unified
         m_ser: m_ser {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp FR_LBKT &kp FR_S &kp FR_E &kp FR_R &kp FR_I &kp FR_A &kp FR_L &kp FR_I &kp FR_Z &kp FR_E &kp FR_F &kp FR_I &kp FR_E &kp FR_L &kp FR_D &kp FR_RBKT &kp SPACE &kp FR_P &kp FR_R &kp FR_I &kp FR_V &kp FR_A &kp FR_T &kp FR_E &kp SPACE>;
+            bindings = <&kp FR_LBKT &kp LS(FR_S) &kp FR_E &kp FR_R &kp FR_I &kp FR_A &kp FR_L &kp FR_I &kp FR_Z &kp FR_E &kp LS(FR_F) &kp FR_I &kp FR_E &kp FR_L &kp FR_D &kp FR_RBKT &kp SPACE &kp FR_P &kp FR_R &kp FR_I &kp FR_V &kp FR_A &kp FR_T &kp FR_E &kp SPACE>;
         };
+
         // Unity Debug Log (Debug.Log("");) + Cursor placement
         m_log: m_log {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp FR_D &kp FR_E &kp FR_B &kp FR_U &kp FR_G &kp FR_DOT &kp FR_L &kp FR_O &kp FR_G &kp FR_LPAR &kp FR_DQT &kp FR_DQT &kp FR_RPAR &kp FR_SEMI &kp LEFT &kp LEFT &kp LEFT>;
+            bindings = <&kp LS(FR_D) &kp FR_E &kp FR_B &kp FR_U &kp FR_G &kp FR_DOT &kp LS(FR_L) &kp FR_O &kp FR_G &kp FR_LPAR &kp FR_DQT &kp FR_DQT &kp FR_RPAR &kp FR_SEMI &kp LEFT &kp LEFT &kp LEFT>;
         };
     };
 
@@ -110,22 +118,40 @@
 
         combo_capsword {
             timeout-ms = <50>;
-            key-positions = <20 29>;    // W + ! (Bottom extremities)
+            key-positions = <20 29>;    // W + ! 
             bindings = <&caps_word>;
         };
 
-        // --- C# GENERICS & XML (< >) ---
+        // --- C# GENERICS & XML (< >) FOR WINDOWS ---
 
-        combo_lt {
+        combo_lt_win {
             timeout-ms = <40>;
             key-positions = <27 28>;    // , + ;
             bindings = <&kp FR_LT>;
+            layers = <BASE SYS_WIN>;
         };
 
-        combo_gt {
+        combo_gt_win {
             timeout-ms = <40>;
             key-positions = <28 29>;    // ; + :
             bindings = <&kp FR_GT>;
+            layers = <BASE SYS_WIN>;
+        };
+
+        // --- C# GENERICS & XML (< >) FOR MAC WORKAROUND ---
+
+        combo_lt_mac {
+            timeout-ms = <40>;
+            key-positions = <27 28>;    // , + ;
+            bindings = <&kp FR_SUPER2>; // Sends ², macOS translates to <
+            layers = <MAC SYS_MAC>;
+        };
+
+        combo_gt_mac {
+            timeout-ms = <40>;
+            key-positions = <28 29>;    // ; + :
+            bindings = <&kp LS(FR_SUPER2)>; // Sends Shift+², macOS translates to >
+            layers = <MAC SYS_MAC>;
         };
 
         // --- VS CODE ---
@@ -141,7 +167,7 @@
             timeout-ms = <50>;
             key-positions = <29 30>;   // : + !
             bindings = <&kp LG(FR_SLASH)>;
-            layers = <MAC>;
+            layers = <MAC SYS_MAC>;
         };
     };
 
@@ -183,7 +209,7 @@
         };
 
 /* ------------------------------------------------------------------------------------------------
- * LAYER 1: C# SYMBOLS & CODE
+ * LAYER 2: C# SYMBOLS & CODE
  *
  * !     @     #     $     %     |     <     >     [     ]     "
  * ^     &     * |     _     |     (     )     {     }     '
@@ -192,6 +218,7 @@
  *
  * Notes: 
  * - Optimized for C#: ( ) { } [ ] accessible without moving the right wrist.
+ * - Mac users must use "Français - PC" layout in macOS settings.
  * ------------------------------------------------------------------------------------------------ */
 
         sym_layer {
@@ -199,22 +226,18 @@
             bindings = <
 &kp FR_EXCL     &kp FR_AT       &kp FR_HASH     &kp FR_DLLR     &kp FR_PRCNT                           &kp FR_LT    &kp FR_GT    &kp FR_LBKT  &kp FR_RBKT  &kp FR_DQT
 &kp FR_CARET    &kp FR_AMPS     &kp FR_ASTRK    &kp FR_PIPE     &kp FR_UNDER                           &kp FR_LPAR  &kp FR_RPAR  &kp FR_LBRC  &kp FR_RBRC  &kp FR_SQT
-&m_lambda       &kp FR_ASTRK    &kp FR_PLUS     &kp FR_MINUS    &kp FR_EQUAL  &kp FR_BSLH  &kp FR_QMARK &kp FR_COLON &kp FR_SEMI  &kp FR_GRAVE &kp FR_TILDE &m_ser
+&m_lambda_win   &kp FR_ASTRK    &kp FR_PLUS     &kp FR_MINUS    &kp FR_EQUAL  &kp FR_BSLH  &kp FR_QMARK &kp FR_COLON &kp FR_SEMI  &kp FR_GRAVE &kp FR_TILDE &m_ser
                                                 &m_log          &trans        &trans       &trans       &trans       &trans
             >;
         };
 
 /* ------------------------------------------------------------------------------------------------
- * LAYER 2: NAVIGATION & DEBUG
+ * LAYER 3: NAVIGATION & DEBUG
  *
  * F1    F2    F3    F4    F5    |     Home  PgDn  PgUp  End   PrtSc
  * F6    F7    F8    F9    F10   |     Left  Down  Up    Right Ins
  * F11   F12               |     Game              ...
  * ...   ...   ...           |     ...   ...   ...
- *
- * Notes: 
- * - VIM style navigation (HJKL) on the right hand.
- * - Access to GAME Layer via the right thumb.
  * ------------------------------------------------------------------------------------------------ */
 
         num_layer {
@@ -228,7 +251,7 @@
         };
 
 /* ------------------------------------------------------------------------------------------------
- * LAYER 3: SYSTEM & BLUETOOTH
+ * LAYER 4 & 5: SYSTEM & BLUETOOTH
  *
  * RST           OutTog BTClr      |                 F7    F8    F9    F12
  * Boot  BtNxt          BtSel1     |     Slck        F4    F5    F6    F11
@@ -257,16 +280,12 @@
         };
 
 /* ------------------------------------------------------------------------------------------------
- * LAYER 4: GAME (UNITY / FPS)
+ * LAYER 6: GAME (UNITY / FPS)
  *
  * A     Z     E     R     T     |     Y     U     I     O     P
  * Q     S     D     F     G     |     H     J     K     L     M
  * W     X     C     V     B     |     N     ,     ;     :     !
  * Ctrl  Space Shift         |     ...   ...   ...
- *
- * Notes: 
- * - No Home Row Mods (to avoid interfering with WASD/ZQSD).
- * - "To Base" on the left pinky to exit game mode.
  * ------------------------------------------------------------------------------------------------ */
 
         game_layer {
