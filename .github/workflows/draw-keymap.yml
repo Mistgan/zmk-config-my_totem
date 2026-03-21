@@ -16,5 +16,5 @@ jobs:
       keymap_patterns: "config/*.keymap"
       config_path: "keymap_drawer.config.yaml"
       output_folder: "img"
-      parse_args: ""
+      parse_args: "-DFR_ESCAPE_CHARACTER=FR_ESC_CHAR -DFR_FILE_SEPARATOR=FR_FILE_SEP -DFR_GROUP_SEPARATOR=FR_GROUP_SEP"
       draw_args: "-k totem"
