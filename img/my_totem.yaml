@@ -29,10 +29,10 @@ layers:
   - B
   - N
   - ','
-  - FR SEMI
+  - ;
   - ':'
-  - FR EXCL
-  - {t: FR SQT, h: ble}
+  - '!'
+  - {t: '''', h: ble}
   - {t: Ctl+C, h: SysWin}
   - {t: TAB, h: Nav}
   - {t: SPACE, h: Code}
@@ -68,10 +68,10 @@ layers:
   - B
   - N
   - ','
-  - FR SEMI
+  - ;
   - ':'
-  - FR EXCL
-  - {t: FR SQT, h: ble}
+  - '!'
+  - {t: '''', h: ble}
   - {t: Gui+C, h: SysMac}
   - {t: TAB, h: Nav}
   - {t: SPACE, h: Code}
@@ -79,35 +79,35 @@ layers:
   - {t: BSPC, h: Nav}
   - {t: DEL, h: SysMac}
   Code:
-  - FR EXCL
-  - FR AT
+  - '!'
+  - '@'
   - '#'
-  - FR DLLR
-  - FR PRCNT
-  - FR LT
-  - FR GT
-  - FR LBKT
-  - FR RBKT
-  - FR DQT
+  - $
+  - '%'
+  - <
+  - '>'
+  - '['
+  - ']'
+  - '"'
   - ^
-  - FR AMPS
-  - FR ASTRK
+  - '&'
+  - '*'
   - '|'
-  - FR UNDER
-  - FR LPAR
-  - FR RPAR
-  - FR LBRC
-  - FR RBRC
-  - FR SQT
+  - _
+  - (
+  - )
+  - '{'
+  - '}'
+  - ''''
   - '&m_lambda'
-  - FR ASTRK
+  - '*'
   - +
   - '-'
   - '='
-  - FR BSLH
-  - FR QMARK
+  - \
+  - '?'
   - ':'
-  - FR SEMI
+  - ;
   - '`'
   - '~'
   - '&m_ser'
@@ -165,7 +165,7 @@ layers:
   - F2
   - Sft+F12
   - Ctl+F12
-  - Ctl+FR DOT
+  - Ctl+.
   - Ctl+Sft+R
   - {t: ▽, type: trans}
   - F5
@@ -204,7 +204,7 @@ layers:
   - F2
   - Sft+F12
   - Gui+F12
-  - Gui+FR DOT
+  - Gui+.
   - Gui+Sft+R
   - {t: ▽, type: trans}
   - F5
@@ -223,8 +223,8 @@ layers:
   - F11
   - F12
   - Gui+/
-  - Gui+FR LBKT
-  - Gui+FR RBKT
+  - Gui+[
+  - Gui+]
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -263,9 +263,9 @@ layers:
   - B
   - N
   - ','
-  - FR SEMI
+  - ;
   - ':'
-  - FR EXCL
+  - '!'
   - {t: ▽, type: trans}
   - Ctrl
   - SPACE
@@ -322,9 +322,9 @@ combos:
 - p: [20, 29]
   k: '&caps_word'
 - p: [27, 28]
-  k: FR LT
+  k: <
 - p: [28, 29]
-  k: FR GT
+  k: '>'
 - p: [29, 30]
   k: Ctl+/
   l: [Base, SysWin]
