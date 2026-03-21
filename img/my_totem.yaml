@@ -99,7 +99,7 @@ layers:
   - '{'
   - '}'
   - ''''
-  - '&m_lambda'
+  - '&m_lambda_win'
   - '*'
   - +
   - '-'
@@ -323,11 +323,19 @@ combos:
   k: '&caps_word'
 - p: [27, 28]
   k: <
+  l: [Base, SysWin]
 - p: [28, 29]
   k: '>'
+  l: [Base, SysWin]
+- p: [27, 28]
+  k: ²
+  l: [Mac, SysMac]
+- p: [28, 29]
+  k: Sft+²
+  l: [Mac, SysMac]
 - p: [29, 30]
   k: Ctl+/
   l: [Base, SysWin]
 - p: [29, 30]
   k: Gui+/
-  l: [Mac]
+  l: [Mac, SysMac]
