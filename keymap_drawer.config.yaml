@@ -8,21 +8,23 @@ parse_config:
   zmk_hold_tap_behaviors:
     - hm
   zmk_keycode_map:
-    LCTRL: Ctrl
-    RCTRL: Ctrl
-    LALT: Alt
-    RALT: Alt
-    LGUI: Gui
-    RGUI: Gui
-    LSHFT: Shft
-    RSHFT: Shft
+# Standard Modifiers
+    LCTRL: "Ctrl"
+    RCTRL: "Ctrl"
+    LALT: "Alt"
+    RALT: "Alt"
+    LGUI: "Gui"
+    RGUI: "Gui"
+    LSHFT: "Shft"
+    RSHFT: "Shft"
 
-    # Mappings for complex FR macros
-    FR_ESC_CHAR: EscChr
-    FR_FILE_SEP: FileSep
-    FR_GROUP_SEP: GrpSep
+    # Special Characters
+    FR_ESCAPE_CHARACTER: "EscChr"
+    FR_FILE_SEPARATOR: "FileSep"
+    FR_GROUP_SEPARATOR: "GrpSep"
+    FR_SPACE: "Space"
 
-    # French layout keys
+    # Letters
     FR_A: "A"
     FR_B: "B"
     FR_C: "C"
@@ -49,6 +51,8 @@ parse_config:
     FR_X: "X"
     FR_Y: "Y"
     FR_Z: "Z"
+
+    # Numbers
     FR_N0: "0"
     FR_N1: "1"
     FR_N2: "2"
@@ -59,46 +63,117 @@ parse_config:
     FR_N7: "7"
     FR_N8: "8"
     FR_N9: "9"
-    FR_SPACE: "Space"
+
+    # Symbols and Punctuation (All variants included)
     FR_EXCLAMATION: "!"
-    FR_DOUBLE_QUOTES: '"'
+    FR_EXCL: "!"
+    
+    FR_DOUBLE_QUOTES: "\""
+    FR_DQT: "\""
+    
     FR_HASH: "#"
+    FR_POUND: "#"
+    
     FR_DOLLAR: "$"
+    FR_DLLR: "$"
+    
     FR_PERCENT: "%"
+    FR_PRCNT: "%"
+    
     FR_AMPERSAND: "&"
+    FR_AMPS: "&"
+    
     FR_SINGLE_QUOTE: "'"
+    FR_SQT: "'"
+    FR_APOSTROPHE: "'"
+    FR_APOS: "'"
+    
     FR_LEFT_PARENTHESIS: "("
+    FR_LPAR: "("
+    
     FR_RIGHT_PARENTHESIS: ")"
+    FR_RPAR: ")"
+    
     FR_ASTERISK: "*"
+    FR_ASTRK: "*"
+    FR_STAR: "*"
+    
     FR_PLUS: "+"
+    
     FR_COMMA: ","
+    
     FR_MINUS: "-"
+    
     FR_PERIOD: "."
+    FR_DOT: "."
+    
     FR_SLASH: "/"
+    FR_FSLH: "/"
+    
     FR_COLON: ":"
+    
     FR_SEMICOLON: ";"
+    FR_SEMI: ";"
+    
     FR_LESS_THAN: "<"
+    FR_LT: "<"
+    
     FR_EQUAL: "="
+    
     FR_GREATER_THAN: ">"
+    FR_GT: ">"
+    
     FR_QUESTION: "?"
+    FR_QMARK: "?"
+    
     FR_AT_SIGN: "@"
+    FR_AT: "@"
+    
     FR_LEFT_BRACKET: "["
+    FR_LBKT: "["
+    
     FR_BACKSLASH: "\\"
+    FR_BSLH: "\\"
+    
     FR_RIGHT_BRACKET: "]"
+    FR_RBKT: "]"
+    
     FR_CARET: "^"
+    
     FR_UNDERSCORE: "_"
+    FR_UNDER: "_"
+    
     FR_GRAVE: "`"
+    
     FR_LEFT_BRACE: "{"
+    FR_LBRC: "{"
+    
     FR_PIPE: "|"
+    
     FR_RIGHT_BRACE: "}"
+    FR_RBRC: "}"
+    
     FR_TILDE: "~"
+    
     FR_POUND_SIGN: "£"
+    
     FR_CURRENCY_SIGN: "¤"
+    FR_CURREN: "¤"
+    
     FR_SECTION: "§"
+    FR_SECT: "§"
+    
     FR_UMLAUT: "¨"
+    
     FR_DEGREE: "°"
+    FR_DEG: "°"
+    
     FR_SUPER2: "²"
+    FR_SQUARE: "²"
+    
     FR_MU: "µ"
+    FR_MICRO: "µ"
+    
     FR_A_GRAVE: "à"
     FR_C_CEDILLA: "ç"
     FR_E_GRAVE: "è"
