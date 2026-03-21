@@ -4,8 +4,7 @@ draw_config:
   split_gap: 30.0
 
 parse_config:
-  preprocess:
-    true
+  preprocess: true
   zmk_hold_tap_behaviors:
     - hm
   zmk_keycode_map:
