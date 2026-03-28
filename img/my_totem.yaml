@@ -84,8 +84,8 @@ layers:
   - '#'
   - $
   - '%'
-  - <
-  - '>'
+  - NON US BSLH
+  - Sft+NON US BSLH
   - '['
   - ']'
   - '"'
@@ -322,16 +322,16 @@ combos:
 - p: [20, 29]
   k: '&caps_word'
 - p: [27, 28]
-  k: <
+  k: NON US BSLH
   l: [Base, SysWin]
 - p: [28, 29]
-  k: '>'
+  k: Sft+NON US BSLH
   l: [Base, SysWin]
 - p: [27, 28]
-  k: ²
+  k: NON US BSLH
   l: [Mac, SysMac]
 - p: [28, 29]
-  k: Sft+²
+  k: Sft+NON US BSLH
   l: [Mac, SysMac]
 - p: [29, 30]
   k: Ctl+/
