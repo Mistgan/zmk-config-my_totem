@@ -195,7 +195,7 @@
 &kp FR_A        &kp FR_Z        &kp FR_E        &kp FR_R        &kp FR_T                                           &kp FR_Y       &kp FR_U        &kp FR_I        &kp FR_O        &kp FR_P
 &hm LGUI FR_Q   &hm LALT FR_S   &hm LCTRL FR_D  &hm LSHFT FR_F  &kp FR_G                                           &kp FR_H       &hm RSHFT FR_J  &hm RCTRL FR_K  &hm RALT FR_L   &hm RGUI FR_M
 &lt SYS_WIN TAB &kp FR_W        &kp FR_X        &kp FR_C        &kp FR_V       &kp FR_B               &kp FR_N     &kp FR_COMMA   &kp FR_SEMI     &kp FR_COLON    &kp FR_EXCL     &lt BLE FR_SQT
-                                                &lt SYS_WIN LC(FR_C) &lt NAV TAB &lt SYM_WIN SPACE        &lt SYM RET  &lt NAV BSPC   &lt SYS_WIN DEL
+                                                &lt SYS_WIN LC(FR_C) &lt NAV TAB &lt SYM_WIN SPACE        &lt SYM_WIN RET  &lt NAV BSPC   &lt SYS_WIN DEL
             >;
         };
 
@@ -205,7 +205,7 @@
 &kp FR_A        &kp FR_Z        &kp FR_E        &kp FR_R        &kp FR_T                                           &kp FR_Y       &kp FR_U        &kp FR_I        &kp FR_O        &kp FR_P
 &hm LCTRL FR_Q  &hm LALT FR_S   &hm LGUI FR_D   &hm LSHFT FR_F  &kp FR_G                                           &kp FR_H       &hm RSHFT FR_J  &hm RGUI FR_K   &hm RALT FR_L   &hm RCTRL FR_M
 &lt SYS_MAC TAB &kp FR_W        &kp FR_X        &kp FR_C        &kp FR_V       &kp FR_B               &kp FR_N     &kp FR_COMMA   &kp FR_SEMI     &kp FR_COLON    &kp FR_EXCL     &lt BLE FR_SQT
-                                                &lt SYS_MAC LG(FR_C) &lt NAV TAB &lt SYM_MAC SPACE        &lt SYM RET  &lt NAV BSPC   &lt SYS_MAC DEL
+                                                &lt SYS_MAC LG(FR_C) &lt NAV TAB &lt SYM_MAC SPACE        &lt SYM_MAC RET  &lt NAV BSPC   &lt SYS_MAC DEL
             >;
         };
 
