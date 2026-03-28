@@ -35,8 +35,8 @@ layers:
   - {t: '''', h: ble}
   - {t: Ctl+C, h: SysWin}
   - {t: TAB, h: Nav}
-  - {t: SPACE, h: Code}
-  - {t: RET, h: Code}
+  - {t: SPACE, h: Code Win}
+  - {t: RET, h: Code Win}
   - {t: BSPC, h: Nav}
   - {t: DEL, h: SysWin}
   Mac:
@@ -74,11 +74,11 @@ layers:
   - {t: '''', h: ble}
   - {t: Gui+C, h: SysMac}
   - {t: TAB, h: Nav}
-  - {t: SPACE, h: Code}
-  - {t: RET, h: Code}
+  - {t: SPACE, h: Code Mac}
+  - {t: RET, h: Code Mac}
   - {t: BSPC, h: Nav}
   - {t: DEL, h: SysMac}
-  Code:
+  Code Win:
   - '!'
   - '@'
   - '#'
@@ -100,6 +100,45 @@ layers:
   - '}'
   - ''''
   - '&m_lambda_win'
+  - '*'
+  - +
+  - '-'
+  - '='
+  - \
+  - '?'
+  - ':'
+  - ;
+  - '`'
+  - '~'
+  - '&m_ser'
+  - '&m_log'
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  Code Mac:
+  - '!'
+  - '@'
+  - '#'
+  - $
+  - '%'
+  - GRAVE
+  - Sft+GRAVE
+  - '['
+  - ']'
+  - '"'
+  - ^
+  - '&'
+  - '*'
+  - '|'
+  - _
+  - (
+  - )
+  - '{'
+  - '}'
+  - ''''
+  - '&m_lambda_mac'
   - '*'
   - +
   - '-'
@@ -328,10 +367,10 @@ combos:
   k: Sft+NON US BSLH
   l: [Base, SysWin]
 - p: [27, 28]
-  k: NON US BSLH
+  k: GRAVE
   l: [Mac, SysMac]
 - p: [28, 29]
-  k: Sft+NON US BSLH
+  k: Sft+GRAVE
   l: [Mac, SysMac]
 - p: [29, 30]
   k: Ctl+/
