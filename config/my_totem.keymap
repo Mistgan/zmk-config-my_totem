@@ -75,7 +75,7 @@
         m_lambda_mac: m_lambda_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp FR_EQUAL &kp LS(FR_SUPER2)>; 
+            bindings = <&kp FR_EQUAL &kp LS(NON_US_BSLH)>; 
         };
         
         // Unity Serialized Field ([SerializeField] private ) - Unified
@@ -127,30 +127,30 @@
         combo_lt_win {
             timeout-ms = <40>;
             key-positions = <27 28>;    // , + ;
-            bindings = <&kp FR_LT>;
+            bindings = <&kp NON_US_BSLH>;
             layers = <BASE SYS_WIN>;
         };
 
         combo_gt_win {
             timeout-ms = <40>;
             key-positions = <28 29>;    // ; + :
-            bindings = <&kp FR_GT>;
+            bindings = <&kp LS(NON_US_BSLH)>;
             layers = <BASE SYS_WIN>;
         };
 
-        // --- C# GENERICS & XML (< >) FOR MAC WORKAROUND ---
+        // --- C# GENERICS & XML (< >) FOR MAC ---
 
         combo_lt_mac {
             timeout-ms = <40>;
             key-positions = <27 28>;    // , + ;
-            bindings = <&kp FR_SUPER2>; // Sends ², macOS translates to <
+            bindings = <&kp NON_US_BSLH>;
             layers = <MAC SYS_MAC>;
         };
 
         combo_gt_mac {
             timeout-ms = <40>;
             key-positions = <28 29>;    // ; + :
-            bindings = <&kp LS(FR_SUPER2)>; // Sends Shift+², macOS translates to >
+            bindings = <&kp LS(NON_US_BSLH)>;
             layers = <MAC SYS_MAC>;
         };
 
@@ -224,7 +224,7 @@
         sym_layer {
             display-name = "Code";
             bindings = <
-&kp FR_EXCL     &kp FR_AT       &kp FR_HASH     &kp FR_DLLR     &kp FR_PRCNT                           &kp FR_LT    &kp FR_GT    &kp FR_LBKT  &kp FR_RBKT  &kp FR_DQT
+&kp FR_EXCL     &kp FR_AT       &kp FR_HASH     &kp FR_DLLR     &kp FR_PRCNT                           &kp NON_US_BSLH &kp LS(NON_US_BSLH) &kp FR_LBKT  &kp FR_RBKT  &kp FR_DQT
 &kp FR_CARET    &kp FR_AMPS     &kp FR_ASTRK    &kp FR_PIPE     &kp FR_UNDER                           &kp FR_LPAR  &kp FR_RPAR  &kp FR_LBRC  &kp FR_RBRC  &kp FR_SQT
 &m_lambda_win   &kp FR_ASTRK    &kp FR_PLUS     &kp FR_MINUS    &kp FR_EQUAL  &kp FR_BSLH  &kp FR_QMARK &kp FR_COLON &kp FR_SEMI  &kp FR_GRAVE &kp FR_TILDE &m_ser
                                                 &m_log          &trans        &trans       &trans       &trans       &trans
