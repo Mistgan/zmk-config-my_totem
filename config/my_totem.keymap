@@ -25,12 +25,13 @@
 
 #define BASE 0
 #define MAC  1
-#define SYM  2
-#define NAV  3
-#define SYS_WIN 4
-#define SYS_MAC 5
-#define GAME 6
-#define BLE  7
+#define SYM_WIN 2
+#define SYM_MAC 3
+#define NAV  4
+#define SYS_WIN 5
+#define SYS_MAC 6
+#define GAME 7
+#define BLE  8
 
 // --- BEHAVIORS CONFIGURATION ---
 // Mod-Tap: Short press = Key, Long press = Modifier
@@ -143,14 +144,14 @@
         combo_lt_mac {
             timeout-ms = <40>;
             key-positions = <27 28>;    // , + ;
-            bindings = <&kp NON_US_BSLH>;
+            bindings = <&kp GRAVE>;     // Changed from NON_US_BSLH to bypass macOS ISO bug
             layers = <MAC SYS_MAC>;
         };
 
         combo_gt_mac {
             timeout-ms = <40>;
             key-positions = <28 29>;    // ; + :
-            bindings = <&kp LS(NON_US_BSLH)>;
+            bindings = <&kp LS(GRAVE)>; // Changed from LS(NON_US_BSLH)
             layers = <MAC SYS_MAC>;
         };
 
@@ -194,7 +195,7 @@
 &kp FR_A        &kp FR_Z        &kp FR_E        &kp FR_R        &kp FR_T                                           &kp FR_Y       &kp FR_U        &kp FR_I        &kp FR_O        &kp FR_P
 &hm LGUI FR_Q   &hm LALT FR_S   &hm LCTRL FR_D  &hm LSHFT FR_F  &kp FR_G                                           &kp FR_H       &hm RSHFT FR_J  &hm RCTRL FR_K  &hm RALT FR_L   &hm RGUI FR_M
 &lt SYS_WIN TAB &kp FR_W        &kp FR_X        &kp FR_C        &kp FR_V       &kp FR_B               &kp FR_N     &kp FR_COMMA   &kp FR_SEMI     &kp FR_COLON    &kp FR_EXCL     &lt BLE FR_SQT
-                                                &lt SYS_WIN LC(FR_C) &lt NAV TAB &lt SYM SPACE        &lt SYM RET  &lt NAV BSPC   &lt SYS_WIN DEL
+                                                &lt SYS_WIN LC(FR_C) &lt NAV TAB &lt SYM_WIN SPACE        &lt SYM RET  &lt NAV BSPC   &lt SYS_WIN DEL
             >;
         };
 
@@ -204,7 +205,7 @@
 &kp FR_A        &kp FR_Z        &kp FR_E        &kp FR_R        &kp FR_T                                           &kp FR_Y       &kp FR_U        &kp FR_I        &kp FR_O        &kp FR_P
 &hm LCTRL FR_Q  &hm LALT FR_S   &hm LGUI FR_D   &hm LSHFT FR_F  &kp FR_G                                           &kp FR_H       &hm RSHFT FR_J  &hm RGUI FR_K   &hm RALT FR_L   &hm RCTRL FR_M
 &lt SYS_MAC TAB &kp FR_W        &kp FR_X        &kp FR_C        &kp FR_V       &kp FR_B               &kp FR_N     &kp FR_COMMA   &kp FR_SEMI     &kp FR_COLON    &kp FR_EXCL     &lt BLE FR_SQT
-                                                &lt SYS_MAC LG(FR_C) &lt NAV TAB &lt SYM SPACE        &lt SYM RET  &lt NAV BSPC   &lt SYS_MAC DEL
+                                                &lt SYS_MAC LG(FR_C) &lt NAV TAB &lt SYM_MAC SPACE        &lt SYM RET  &lt NAV BSPC   &lt SYS_MAC DEL
             >;
         };
 
@@ -221,12 +222,22 @@
  * - Mac users must use "Français - PC" layout in macOS settings.
  * ------------------------------------------------------------------------------------------------ */
 
-        sym_layer {
-            display-name = "Code";
+        sym_win_layer {
+            display-name = "Code Win";
             bindings = <
 &kp FR_EXCL     &kp FR_AT       &kp FR_HASH     &kp FR_DLLR     &kp FR_PRCNT                           &kp NON_US_BSLH &kp LS(NON_US_BSLH) &kp FR_LBKT  &kp FR_RBKT  &kp FR_DQT
 &kp FR_CARET    &kp FR_AMPS     &kp FR_ASTRK    &kp FR_PIPE     &kp FR_UNDER                           &kp FR_LPAR  &kp FR_RPAR  &kp FR_LBRC  &kp FR_RBRC  &kp FR_SQT
 &m_lambda_win   &kp FR_ASTRK    &kp FR_PLUS     &kp FR_MINUS    &kp FR_EQUAL  &kp FR_BSLH  &kp FR_QMARK &kp FR_COLON &kp FR_SEMI  &kp FR_GRAVE &kp FR_TILDE &m_ser
+                                                &m_log          &trans        &trans       &trans       &trans       &trans
+            >;
+        };
+
+        sym_mac_layer {
+            display-name = "Code Mac";
+            bindings = <
+&kp FR_EXCL     &kp FR_AT       &kp FR_HASH     &kp FR_DLLR     &kp FR_PRCNT                           &kp GRAVE    &kp LS(GRAVE)  &kp FR_LBKT  &kp FR_RBKT  &kp FR_DQT
+&kp FR_CARET    &kp FR_AMPS     &kp FR_ASTRK    &kp FR_PIPE     &kp FR_UNDER                           &kp FR_LPAR  &kp FR_RPAR  &kp FR_LBRC  &kp FR_RBRC  &kp FR_SQT
+&m_lambda_mac   &kp FR_ASTRK    &kp FR_PLUS     &kp FR_MINUS    &kp FR_EQUAL  &kp FR_BSLH  &kp FR_QMARK &kp FR_COLON &kp FR_SEMI  &kp FR_GRAVE &kp FR_TILDE &m_ser
                                                 &m_log          &trans        &trans       &trans       &trans       &trans
             >;
         };
